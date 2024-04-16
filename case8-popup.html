@@ -1,0 +1,409 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="stylesheet" href="styles.css">
+  <script src="script.js" defer></script>
+  <title>Image Gallery</title>
+
+  <style>
+      .gallery-c8 {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        margin-top: 20px;
+    }
+
+    .row-c8 {
+        display: flex;
+        justify-content: center;
+        margin-bottom: 10px;
+        border: 5px;
+    }
+
+    .image-container-c8 {
+        margin: 0 10px;
+        width: 150px;
+        height: 150px;
+        overflow: hidden;
+    }
+
+    .image-container-c8 img {
+        width: 100%;
+        height: 100%;
+        object-fit: cover;
+        cursor: pointer;
+    }
+
+    .popup-box-c8 {
+        display: none;
+        position: fixed;
+        z-index: 1000;
+        top: 50%;
+        /* Adjust the vertical position */
+        left: 50%;
+        /* Adjust the horizontal position */
+        transform: translate(-50%, -50%);
+        width: 90%;
+        /* Adjust the maximum width */
+        max-height: 100%;
+        /* Adjust the maximum height */
+        background-color: rgba(0, 0, 0, 0.9);
+        overflow: auto;
+        text-align: center;
+        padding: 13px;
+        margin: 13px;
+        box-shadow: 0 2px 10px rgba(0, 0, 0, 0.5);
+    }
+
+    .popup-image-c8 {
+        width: 60%;
+        /* height: 100%; */
+    }
+
+    .close-c8 {
+        position: absolute;
+        top: 15px;
+        right: 15px;
+        font-size: 30px;
+        color: white;
+        cursor: pointer;
+    }
+
+    .image-details-c8 {
+        color: white;
+        text-align: center;
+        padding: 20px;
+        width: 40%;
+    }
+
+    .image-details-c8 h2 {
+        font-size: 1.5em;
+        margin-bottom: 10px;
+    }
+
+    .image-details-c8 p {
+        margin: 10px 0;
+
+    }
+</style>
+<body>
+    <div class="gallery-c8">
+        <!--2 Youths Companion -->
+        <div class="row-c8">
+            <div class="image-container-c8"><img alt="Image 1" loading="lazy" src="https://libapps.s3.amazonaws.com/accounts/361989/images/2-youths-companion.jpg" /></div>
+
+            <div class="image-container-c8"><img alt="Image 2" loading="lazy" src="https://libapps.s3.amazonaws.com/accounts/361989/images/2a-youths-companion-us-page.jpg" /></div>
+
+            <div class="image-container-c8"><img alt="Image 3" loading="lazy" src="https://libapps.s3.amazonaws.com/accounts/361989/images/2b-Tuppance-Blue.jpg" /></div>
+
+            <div class="image-container-c8"><img alt="Image 4" loading="lazy" src="https://libapps.s3.amazonaws.com/accounts/361989/images/2c-hangchow-letter_front.jpg" /></div>
+
+            <div class="image-container-c8"><img alt="Image 6" loading="lazy" src="https://libapps.s3.amazonaws.com/accounts/361989/images/2d-hangchow-letter_back.jpg" /></div>
+
+        </div>
+       
+        <!-- 4 civil war-->
+        <div class="row-c8">
+
+            <div class="image-container-c8"><img alt="Image 7" loading="lazy" src="https://libapps.s3.amazonaws.com/accounts/361989/images/4-CSA-6.jpg" /></div>
+
+            <div class="image-container-c8"><img alt="Image 8" loading="lazy" src="https://libapps.s3.amazonaws.com/accounts/361989/images/4a-US-985.jpg" /></div>
+
+            <div class="image-container-c8"><img alt="Image 9" loading="lazy" src="https://libapps.s3.amazonaws.com/accounts/361989/images/4b-US-998.jpg" /></div>
+        </div>
+   
+        <div class="row-c8">
+            
+            <div class="image-container-c8"><img alt="Image 10" loading="lazy" src="https://libapps.s3.amazonaws.com/accounts/361989/images/4c-US-1113.jpg" /></div>
+
+            <div class="image-container-c8"><img alt="Image 11" loading="lazy" src="https://libapps.s3.amazonaws.com/accounts/361989/images/4d-US-1179.jpg" /></div>
+
+            <div class="image-container-c8"><img alt="Image 12" loading="lazy" src="https://libapps.s3.amazonaws.com/accounts/361989/images/4e-Stones-River-Battle-Field.jpg" /></div>
+
+        </div>
+
+        <!--5 Boozy-->
+        <div class="row-c8">
+            <div class="image-container-c8"><img alt="Image 13" loading="lazy" src="https://libapps.s3.amazonaws.com/accounts/361989/images/5-BVI-history-of-rum-making.jpg" /></div>
+
+            <div class="image-container-c8"><img alt="Image 14" loading="lazy" src="https://libapps.s3.amazonaws.com/accounts/361989/images/5a-Belgium-trappist-beer.jpg" /></div>
+
+            <div class="image-container-c8"><img alt="Image 15" loading="lazy" src="https://libapps.s3.amazonaws.com/accounts/361989/images/5b-Belgium-wine.jpg" /></div>
+
+            <div class="image-container-c8"><img alt="Image 16" loading="lazy" src="https://libapps.s3.amazonaws.com/accounts/361989/images/5c-san-marino-wine.jpg" /></div>
+
+            <div class="image-container-c8"><img alt="Image 17" loading="lazy" src="https://libapps.s3.amazonaws.com/accounts/361989/images/5d-Russian-ministry-of-alcohol.jpg" /></div>
+
+        </div>
+        
+        <div class="row-c8">
+            <div class="image-container-c8"><img alt="Image 18" loading="lazy" src="https://libapps.s3.amazonaws.com/accounts/361989/images/5e-Russian-revenue.jpg" /></div>
+
+            <div class="image-container-c8"><img alt="Image 19" loading="lazy" src="https://libapps.s3.amazonaws.com/accounts/361989/images/5f-wine-for-america-stamp.jpg" /></div>
+
+            <div class="image-container-c8"><img alt="Image 20" loading="lazy" src="https://libapps.s3.amazonaws.com/accounts/361989/images/5g-Nellie-J-Banks-rum-running-ship.jpg" /></div>
+
+            <div class="image-container-c8"><img alt="Image 21" loading="lazy" src="https://libapps.s3.amazonaws.com/accounts/361989/images/5i-Hops-growing-in-the-Yakima-Valley_front.jpg" /></div>
+
+            <div class="image-container-c8"><img alt="Image 22" loading="lazy" src="https://libapps.s3.amazonaws.com/accounts/361989/images/5j-Jack-Daniels-Rickyard_front.jpg" /></div>
+        
+        </div>
+
+        <div class="row-c8">
+            <div class="image-container-c8"><img alt="Image 23" loading="lazy" src="https://libapps.s3.amazonaws.com/accounts/361989/images/5h1-alcoholism-you-can-beat-it.jpg" /></div>
+
+            <div class="image-container-c8"><img alt="Image 24" loading="lazy" src="https://libapps.s3.amazonaws.com/accounts/361989/images/5h2-Prohibition-enforced.jpg" /></div>
+
+            <div class="image-container-c8"><img alt="Image 25" loading="lazy" src="https://libapps.s3.amazonaws.com/accounts/361989/images/5h3-pinot-noir-grapes.jpg" /></div>
+
+        </div>
+            
+
+        <!--6 equine -->
+
+        <div class="row-c8">
+            <div class="image-container-c8"><img alt="Image 26" loading="lazy" src="https://libapps.s3.amazonaws.com/accounts/361989/images/6-Spanish-Riding-School_front.jpg" /></div>
+
+            <div class="image-container-c8"><img alt="Image 27" loading="lazy" src="https://libapps.s3.amazonaws.com/accounts/361989/images/6a-Spanish-riding-school-stamp.jpg" /></div>
+
+            <div class="image-container-c8"><img alt="Image 28" loading="lazy" src="https://libapps.s3.amazonaws.com/accounts/361989/images/6b-The-Pusher-TN-walking-horse_front.jpg" /></div>
+
+            <div class="image-container-c8"><img alt="Image 29" loading="lazy" src="https://libapps.s3.amazonaws.com/accounts/361989/images/6c1-TN-Walking-horse-cover.jpg" /></div>
+
+            <div class="image-container-c8"><img alt="Image 30" loading="lazy" src="https://libapps.s3.amazonaws.com/accounts/361989/images/6c2-TN-Walking-horse-cover_back.jpg" /></div>
+
+            <div class="image-container-c8"><img alt="Image 31" loading="lazy" src="https://libapps.s3.amazonaws.com/accounts/361989/images/6d-horse-with-foal_front.jpg" /></div>
+
+        </div>
+
+        <!--GENTLEMAN’S STAMPS-->
+        <div class="row-c8">
+            <div class="image-container-c8"><img alt="Image 32" loading="lazy" src="https://libapps.s3.amazonaws.com/accounts/361989/images/gentleman-Cover.jpg" /></div>
+    
+            <div class="image-container-c8"><img alt="Image 33" loading="lazy" src="https://libapps.s3.amazonaws.com/accounts/361989/images/Gentleman-1.jpg" /></div>
+    
+            <div class="image-container-c8"><img alt="Image 34" loading="lazy" src="https://libapps.s3.amazonaws.com/accounts/361989/images/Gentleman-2.jpg" /></div>
+    
+            <div class="image-container-c8"><img alt="Image 35" loading="lazy" src="https://libapps.s3.amazonaws.com/accounts/361989/images/Gentleman-3.jpg" /></div>
+    
+            <div class="image-container-c8"><img alt="Image 36" loading="lazy" src="https://libapps.s3.amazonaws.com/accounts/361989/images/Gentleman-4.jpg" /></div>
+    
+            <div class="image-container-c8"><img alt="Image 37" loading="lazy" src="https://libapps.s3.amazonaws.com/accounts/361989/images/Gentleman-6.jpg" /></div>
+            
+        </div>
+    
+    </div>
+
+        <div class="popup-box-c8"><span class="close-c8">&times;</span> <img class="popup-image-c8" loading="lazy" src="" />
+        <p class="image-details-c8">&nbsp;</p>
+        </div>
+<!-- JavaScript -->
+    <script>
+    const imageContainers = document.querySelectorAll('.image-container-c8');
+    const popup = document.querySelector('.popup-box-c8');
+    const popupImage = document.querySelector('.popup-image-c8');
+    const imageDetails = document.querySelector('.image-details-c8');
+    const closePopup = document.querySelector('.close-c8');
+    const imageInfo = [{
+        filename: 'image1.jpg',
+        title: 'YOUTH’S COMPANION STAMP ',
+        sentences: [' 1879']
+    }, {
+        filename: 'image2.jpg',
+        title: 'YOUTH’S COMPANION STAMP ',
+        sentences: ['1879']
+    }, {
+        filename: 'image3.jpg',
+        title: 'GREAT BRITAIN. TWO PENNY BLUE',
+        sentences: ['1841']
+    }, {
+        filename: 'image4.jpg',
+        title: 'COVER FROM HANGCHOW (HANGZHOU) CHINA TO NASHVILLE, TENNESSEE',
+        sentences: ['1900', 'A cover dated March 15, 1900 and sent by Dr. Jane Varenia Lee, Presbyterian missionary in Hangchow, China to Dr. Edwin G. Wood, faculty member in the University of Nashville Medical Department.  The two stamps affixed on the front are Japanese Empire Koban series, specifically the UPS Koban issue of 1883 (Scott catalog number 74). The stamp affixed to the back is am Imperial China stamp ']
+    }, {
+        filename: 'image6.jpg',
+        title: 'COVER FROM HANGCHOW (HANGZHOU) CHINA TO NASHVILLE, TENNESSEE',
+        sentences: ['1900', 'A cover dated March 15, 1900 and sent by Dr. Jane Varenia Lee, Presbyterian missionary in Hangchow, China to Dr. Edwin G. Wood, faculty member in the University of Nashville Medical Department.  The two stamps affixed on the front are Japanese Empire Koban series, specifically the UPS Koban issue of 1883 (Scott catalog number 74). The stamp affixed to the back is am Imperial China stamp ']
+    }, {
+        filename: 'image7.jpg',
+        title: 'CONFEDERATE STATES OF AMERICA. JEFFERSON DAVIS',
+        sentences: ['1862', 'Existing from February 8, 1861 until May 9, 1865, the Confederate States of America (C.S.A.) solved the problem of moving mail by creating its own postal service. The C.S.A. Post Office Department was instituted on February 21, 1861, with John Henninger Reagan of Texas as its postmaster general. On June 1, 1861, postal service between the North and South was suspended. Reagan was a masterful administrator. Under his supervision, the C.S.A. department turned a profit. This was quite the achievement, especially in view of conditions in the wartime South. Even Union officials were impressed. In 1865, after the war had ended, Reagan was asked to assume responsibilities in the post-war U.S. Post Office Department. He declined. Our Confederate stamp depicts CSA President Jefferson Davis. It was designed and printed in London by the well-known London engraving company, Thomas De La Rue & Co.. The 5-cent rate was used to pay for postage under 500 miles.']
+    }, {
+        filename: 'image8.jpg',
+        title: 'UNITED STATES. FINAL NATIONAL ENCAMPMENT OF THE GRAND ARMY OF THE REPUBLIC (GAR)',
+        sentences: ['1949', 'Attendees of the eighty-second National Encampment of the Grand Army of the Republic (G.A.R), held at Grand Rapids, Michigan, on September 29, 1948, petitioned the Post Office Department to issue a stamp honoring the Grand Army. The request asked that the Post Office Department release the stamp at the Order’s final national encampment, to occur in the summer of 1949 in Indianapolis, Indiana. The request was granted and the stamp was issued on August 29, 1949. Charles R. Chickering of the Bureau of Engraving and Printing created the stamp’s original design. Charles A. Brooks engraved the vignette, and A.W. Christensen engraved the frame, lettering, and numerals.']
+    }, {
+        filename: 'image9.jpg',
+        title: 'UNITED STATES. FINAL REUNION UNITED CONFEDERATE VETERANS',
+        sentences: ['1951', 'Issued on May 30, 1951, to commemorate the Final Reunion of the United Confederate Veterans.']
+    }, {
+        filename: 'image10.jpg',
+        title: 'UNITED STATES. ABRAHAM LINCOLN. LINCOLN SESQUICENTENNIAL ISSUE',
+        sentences: ['1959', 'The Post Office Department issued a series of four commemorative stamps during 1958 and 1959 recognizing the 150th anniversary of Abraham Lincoln’s birth in 1809. For the 1-cent Lincoln William K. Schrage of the Bureau of Engraving and Printing modeled the stamp based on design work done by Ervine Metzl of New York City. Matthew D. Fenton engraved the vignette; Reuben K. Barrick engraved the lettering, numeral, and frame.']
+    }, {
+        filename: 'image11.jpg',
+        title: 'UNITED STATES. BATTLE OF SHILOH. CIVIL WAR CENTENNIAL ISSUE',
+        sentences: ['1962', 'The stamp was designed by Noel Sickles and portrays a Civil War rifleman crouching behind a tree stump. It is printed on light peach blossom paper, reflecting the fact that an important phase of the battle was fought in a peach orchard. The style of the drawing is meant to simulate that of a rapid battlefield sketch.']
+    }, {
+        filename: 'image12.jpg',
+        title: 'THE BATTLE OF STONES RIVER',
+        sentences: ['Undated ']
+    }, {
+        filename: 'image13.jpg',
+        title: 'THE HISTORY OF RUM MAKING: UP SPIRITS CEREMONY',
+        sentences: ['British Virgin Islands ', '1986']
+    }, {
+        filename: 'image14.jpg',
+        title: 'BELGIUM. BELGISCHE TRAPPISTENBIEREN / LES BIÈRES ',
+        sentences: ['TRAPPISTES BELGES = BELGIAN TRAPPIST BEERS BELGIUM', '2012']
+    }, {
+        filename: 'image15.jpg',
+        title: 'BELGIUM. WIJNBOUW IN BELGIE / LA VITICULTURE EN',
+        sentences: ['BELGIQUE = WINE CULTURE IN BELGIUM', 'Belgium ', '2005']
+    }, {
+        filename: 'image16.jpg',
+        title: 'SAN MARINO. GRANDI VINI ITALIANI = ITALIAN WINE BOTTLE LABELS',
+        sentences: ['2005']
+    }, {
+        filename: 'image17.jpg',
+        title: 'Russia. Федеральное агентство по регулированию алкоголя = FEDERAL ALCOHOL REGULATION AGENCY',
+        sentences: ['2018']
+    }, {
+        filename: 'image18.jpg',
+        title: 'RUSSIA. REVENUE STAMPS',
+        sentences: ['1905 ' , 'A pair of tête-bêche Imperial Russian revenue stamps with a value of 50 Russian Kopeks.']
+    }, {
+        filename: 'image19.jpg',
+        title: 'WINE FOR AMERICA DRIVE',
+        sentences: ['The Wine Advisory Board ',' 1941' , 'Privately printed seal promoting wine consumption in the United States. Philatelically these types of non-postal stamps or seals are known as “Cinderellas.” ']
+    }, {
+        filename: 'image20.jpg',
+        title: 'SAINT PIERRE AND MIQUELON. 50TH ANNIVERSARY OF THE SEIZURE OF THE NELLIE J. BANKS. FIRST DAY COVER',
+        sentences: ['1988 ', 'Originally a cod fishing schooner, the Nellie J. Banks smuggled rum from 1910 until her capture in 1938. Saint Pierre and Miquelon, French Overseas Territories, served as an outpost for alcohol storage and transportation to Canada and the United States during each countries’ Prohibition eras. ']
+    }, {
+        filename: 'image21.jpg',
+        title: 'HOP PICKING IN THE YAKIMA VALLEY',
+        sentences: ['Undated ']
+    }, {
+        filename: 'image22.jpg',
+        title: 'JACK DANIEL’S RICKYARD',
+        sentences: ['1970', 'This postcard shows a pile of sugar maple logs waiting to be made into charcoal. Sugar maple is the type of wood required to use in the Lincoln County whiskey filtering process. To be labeled a Tennessee Whiskey, distillers must follow the Lincoln County process. ']
+    }, {
+        filename: 'image23.jpg',
+        title: 'UNITED STATES. ALCOHOLISM: YOU CAN BEAT IT!',
+        sentences: ['1981']
+    }, {
+        filename: 'image24.jpg',
+        title: 'UNITED STATES. CELEBRATE THE CENTURY (1920S): PROHIBITION ENFORCED',
+        sentences: ['1998 ']
+    }, {
+        filename: 'image25.jpg',
+        title: 'UNITED STATES PINOT NOIR GRAPES',
+        sentences: ['2016']
+    }, {
+        filename: 'image26.jpg',
+        title: 'THE SPANISH RIDING SCHOOL. VIENNA',
+        sentences: [' Undated ']
+    }, {
+        filename: 'image27.jpg',
+        title: 'AUSTRIA. SPANISH REITSCHULE = SPANISH HORSE-RIDING SCHOOL',
+        sentences: ['1972  ']
+    }, {
+        filename: 'image28.jpg',
+        title: 'THE PUSHER C.G. ',
+        sentences: ['Undated' , 'The Pusher C.G. was a World Grand Champion, winning the Tennessee Walking Horse National Celebration in 1981 ridden by Bob McQuerry. ']
+    }, {
+        filename: 'image29.jpg',
+        title: 'UNITED STATES. THE TENNESSEE WALKING HORSE. FIRST DAY, COVER',
+        sentences: ['Barret, Peter (cachet artist) ','1985 ']
+    }, {
+        filename: 'image30.jpg',
+        title: 'UNITED STATES. THE TENNESSEE WALKING HORSE. FIRST DAY, Back',
+        sentences: ['Barret, Peter (cachet artist) ','1985 ']
+    }, {
+        filename: 'image31.jpg',
+        title: 'HORSE WITH FOAL',
+        sentences: ['1957']
+    }, {
+        filename: 'image32.jpg',
+        title: '103 NOT OUT. DAVID GENTLEMAN’S STAMPS',
+        sentences: ['Brian Webb, 2022']
+    }, {
+        filename: 'image33.jpg',
+        title: '103 NOT OUT. DAVID GENTLEMAN’S STAMPS',
+        sentences: ['Brian Webb, 2022']
+    }, {
+        filename: 'image34.jpg',
+        title: '103 NOT OUT. DAVID GENTLEMAN’S STAMPS',
+        sentences: ['Brian Webb, 2022']
+    }, {
+        filename: 'image35.jpg',
+        title: '103 NOT OUT. DAVID GENTLEMAN’S STAMPS',
+        sentences: ['Brian Webb, 2022']
+    }, {
+        filename: 'image36.jpg',
+        title: '103 NOT OUT. DAVID GENTLEMAN’S STAMPS',
+        sentences: ['Brian Webb, 2022']
+    }, {
+        filename: 'image37.jpg',
+        title: '103 NOT OUT. DAVID GENTLEMAN’S STAMPS',
+        sentences: ['Brian Webb, 2022']
+    }];
+
+    let currentImageIndex = 0;
+
+function updatePopupImage(index) {
+    const {
+        title,
+        sentences,
+        filename
+    } = imageInfo[index];
+    popupImage.src = imageContainers[index].querySelector('img').src;
+    imageDetails.innerHTML = `
+        <h2>${title}</h2>`;
+    sentences.forEach(sentence => {
+        imageDetails.innerHTML += `
+            <p>${sentence}</p>`;
+    });
+    currentImageIndex = index;
+}
+
+function showPopup(index) {
+    popup.style.display = 'flex';
+    updatePopupImage(index);
+}
+
+function closePopupBox() {
+    popup.style.display = 'none';
+}
+
+imageContainers.forEach((container, index) => {
+    const image = container.querySelector('img');
+    image.addEventListener('click', () => {
+        showPopup(index);
+    });
+});
+
+closePopup.addEventListener('click', () => {
+    closePopupBox();
+});
+
+document.addEventListener('keydown', event => {
+    if (event.key === 'Escape') {
+        closePopupBox();
+    } else if (event.key === 'ArrowLeft') {
+        if (currentImageIndex > 0) {
+            updatePopupImage(currentImageIndex - 1);
+        }
+    } else if (event.key === 'ArrowRight') {
+        if (currentImageIndex < imageContainers.length - 1) {
+            updatePopupImage(currentImageIndex + 1);
+        }
+    }
+});
+
+    </script>
+</body>
+</html>

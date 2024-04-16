@@ -1,0 +1,198 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="stylesheet" href="styles.css">
+  <script src="script.js" defer></script>
+  <title>Image Gallery</title>
+
+
+
+
+
+  <style>.gallery-c72 {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    margin-top: 20px;
+}
+
+.row-c72 {
+    display: flex;
+    justify-content: center;
+    margin-bottom: 10px;
+}
+
+.image-container-c72 {
+    margin: 0 10px;
+    width: 150px;
+    height: 150px;
+    overflow: hidden;
+}
+
+.image-container-c72 img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    cursor: pointer;
+}
+
+.popup-box-c72 {
+    display: none;
+    position: fixed;
+    z-index: 1000;
+    top: 50%;
+    /* Adjust the vertical position */
+    left: 50%;
+    /* Adjust the horizontal position */
+    transform: translate(-50%, -50%);
+    width: 90%;
+    /* Adjust the maximum width */
+    max-height: 100%;
+    /* Adjust the maximum height */
+    background-color: rgba(0, 0, 0, 0.9);
+    overflow: auto;
+    text-align: center;
+    padding: 13px;
+    margin: 13px;
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.5);
+}
+
+.popup-image-c72 {
+    width: 60%;
+    /* height: 100%; */
+}
+
+.close-c72 {
+    position: absolute;
+    top: 15px;
+    right: 15px;
+    font-size: 30px;
+    color: white;
+    cursor: pointer;
+}
+
+.image-details-c72 {
+    color: white;
+    text-align: center;
+    padding: 20px;
+    width: 40%;
+}
+
+.image-details-c72 h2 {
+    font-size: 1.5em;
+    margin-bottom: 10px;
+}
+
+.image-details-c72 p {
+    margin: 10px 0;
+
+}
+</style>
+<body>
+    <div class="gallery-c72">
+        <div class="row-c72">
+            <div class="image-container-c72"><img alt="Image 1" loading="lazy" src="https://libapps.s3.amazonaws.com/accounts/361989/images/1_city-of-NY-liquor-license-.jpg" /></div>
+
+            <div class="image-container-c72"><img alt="Image 2" loading="lazy" src="https://libapps.s3.amazonaws.com/accounts/361989/images/2_city-of-Bend.jpg" /></div>
+
+            <div class="image-container-c72"><img alt="Image 3" loading="lazy" src="https://libapps.s3.amazonaws.com/accounts/361989/images/3_TN-1-5-gallon-revenue.jpg" /></div>
+
+            <div class="image-container-c72"><img alt="Image 4" loading="lazy" src="https://libapps.s3.amazonaws.com/accounts/361989/images/4_TN-wine-.jpg" /></div>
+
+            <div class="image-container-c72"><img alt="Image 5" loading="lazy" src="https://libapps.s3.amazonaws.com/accounts/361989/images/5_TN-malt.jpg" /></div>
+        </div>
+
+        <div class="row-c72">
+            <div class="image-container-c72"><img alt="Image 6" loading="lazy" src="https://libapps.s3.amazonaws.com/accounts/361989/images/6_gov-doc-bottle-book-.jpg" /></div>
+
+            <div class="image-container-c72"><img alt="Image 7" loading="lazy" src="https://libapps.s3.amazonaws.com/accounts/361989/images/7_muscadine-grapes.jpg" /></div>
+
+            <div class="image-container-c72"><img alt="Image 8" loading="lazy" src="https://libapps.s3.amazonaws.com/accounts/361989/images/8_federal-cordials-revenue-.jpg" /></div>
+
+            <div class="image-container-c72"><img alt="Image 9" loading="lazy" src="https://libapps.s3.amazonaws.com/accounts/361989/images/9_march-1933-beer-revenue.jpg" /></div>
+
+            <div class="image-container-c72"><img alt="Image 10" loading="lazy" src="https://libapps.s3.amazonaws.com/accounts/361989/images/10-laws-of-TN.jpg" /></div>
+        </div>
+    </div>
+
+        <div class="popup-box-c72"><span class="close-c72">&times;</span> <img class="popup-image-c72" loading="lazy" src="" />
+        <p class="image-details-c72">&nbsp;</p>
+        </div>
+<!-- JavaScript -->
+    <script>
+    const imageContainers = document.querySelectorAll('.image-container-c72');
+    const popup = document.querySelector('.popup-box-c72');
+    const popupImage = document.querySelector('.popup-image-c72');
+    const imageDetails = document.querySelector('.image-details-c72');
+    const closePopup = document.querySelector('.close-c72');
+    const imageInfo = [{
+        filename: 'image1.jpg',
+        title: 'LIQUOR LICENSE',
+        sentences: ['City of New York. Printed by William Bradford', 'Ca. 1707-1714', 'A blank liquor license issued during the reign of Anne, Queen of Great Britain (1707 to 1714). William Bradford was the royal printer in New York City during this time.']
+    }, {
+        filename: 'image2.jpg',
+        title: 'CITY OF BEND (OREGON). BEER TAX',
+        sentences: ['1934']
+    }, {
+        filename: 'image3.jpg',
+        title: 'STATE OF TENNESSEE. LIQUOR TAX 1/5 GALLON',
+        sentences: ['1944']
+    }, {
+        filename: 'image4.jpg',
+        title: 'STATE OF TENNESSEE. WINE TAX 4/5 QUART',
+        sentences: ['1939']
+    }, {
+        filename: 'image5.jpg',
+        title: 'STATE OF TENNESSEE. MALT TAX',
+        sentences: ['1929']
+    }, {
+        filename: 'image6.jpg',
+        title: 'THE BERTRAND BOTTLES: A STUDY OF 19TH-CENTURY GLASS AND CERAMIC CONTAINERS',
+        sentences: ['Ronald Switzer', '1974', 'Published by the National Park Service, this classic reference work is a study of 19th century glass bottles and containers recovered from the steamer Bertrand which sank on April 1, 1865, in the Missouri River near Omaha, Nebraska. This work provides a classification and description of physical attributes of bottles and where known, about their manufacturer.']
+    }, {
+        filename: 'image7.jpg',
+        title: 'HOME UTILIZATION OF MUSCADINE GRAPES',
+        sentences: ['Charles Dearing', '1942']
+    }, {
+        filename: 'image8.jpg',
+        title: 'UNITED STATES. CORDIALS, WINES, ETC. REVENUE STAMP',
+        sentences: ['1914', 'The first federal wine stamps were issued in 1914 because of the Emergency Revenue Act of October 22, 1914, a temporary tax enacted in response to President Woodrow Wilson’s request for $100 million in additional Federal revenue in the event of war. Revenue stamps were often used beyond the date printed on them. This stamp is from the 1914 series, but was used on April 24, 1917, in the 2nd District of New York, as indicated by the cancellation.']
+    }, {
+        filename: 'image9.jpg',
+        title: 'UNITED STATES. MALT LIQUOR. ½ BARREL. REVENUE STAMP',
+        sentences: ['1933', 'Federal beer tax US revenue stamps were first issued in 1866 but ceased during Prohibition. The Cullen-Harrison Act was signed by President Franklin Delano Roosevelt on March 22, 1933. It legalized the sale of beer and wine with an alcohol content of 3.2% (by weight) beginning on April 7, 1933. This United States Internal Revenue stamp was once again used to indicate the payment of tax. The overprint of “Act of March 22, 1933” was used when the tax rate was increased from $5.00 to $6.00 per barrel. Federal revenue beer stamps were discontinued in 1951.']
+    }, {
+        filename: 'image10.jpg',
+        title: 'LAWS OF THE STATE OF TENNESSEE',
+        sentences: ['Printed and published by George Roulstone', '1803', 'The first book printed in Tennessee after it was granted statehood.']
+    }];
+    imageContainers.forEach((container, index) => {
+        const image = container.querySelector('img');
+        image.addEventListener('click', () => {
+            popup.style.display = 'flex';
+            popupImage.src = image.src;
+            const {
+                title,
+                sentences
+            } = imageInfo[index];
+            imageDetails.innerHTML = `
+  <h2>${title}</h2>`;
+            sentences.forEach(sentence => {
+                imageDetails.innerHTML += `
+  <p>${sentence}</p>`;
+            });
+        });
+    });
+    closePopup.addEventListener('click', () => {
+        popup.style.display = 'none';
+    });
+    document.addEventListener('keydown', event => {
+        if (event.key === 'Escape') {
+            popup.style.display = 'none';
+        }
+    });
+    </script>
+</body>
+</html>

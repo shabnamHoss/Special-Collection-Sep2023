@@ -1,0 +1,232 @@
+<!DOCTYPE html>
+<html>
+<head>
+<style>
+  .container-case9-1 {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr); /* Changed to 2 columns */
+    gap: 20px;
+    text-align: center;
+    margin-top: 25px;
+  }
+
+  .column-case9-1 {
+    border: 2px solid #b2e0f2;
+    padding: 5px;
+    border-radius: 5px;
+  } 
+
+  .slideshow-case9-1 {
+    width: 100%;
+    height: 600px; /* Adjust the height as needed */
+    position: relative;
+  }
+
+  .slideshow-case9-1 img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    position: absolute;
+    top: 0;
+    left: 0;
+    opacity: 0;
+    transition: opacity 0.5s;
+  }
+  
+  .image-case9-1 {
+    width: 70%; /* Ensure the image-case9 fills its container-case9 */
+    height: auto; /* Set the desired height for the image-case9 */
+    background-size: cover; /* Scale the background image-case9 to cover the container-case9 */
+  } 
+
+  .title-case9-1 {
+    border: 1px solid #b2e0f2;
+    background-color: #cceaf6;
+    color: #1c2b59;
+    padding: 5px;
+    margin-top: 5px;
+    border-radius: 3px;
+  }
+
+  .content-case9-1 {
+    padding: 5px;
+    margin-top: 5px;
+  }
+</style>
+<script>
+  window.addEventListener("load", function() {
+    startSlideshows();
+  });
+
+  function startSlideshows() {
+    const slideshows = document.querySelectorAll(".slideshow-case9-1");
+
+    slideshows.forEach(slideshow => {
+      const images = slideshow.querySelectorAll("img");
+      let currentIndex = 0;
+
+      function showImage(index) {
+        images.forEach((image, i) => {
+          if (i === index) {
+            image.style.opacity = "1";
+          } else {
+            image.style.opacity = "0";
+          }
+        });
+      }
+
+      function nextImage() {
+        currentIndex = (currentIndex + 1) % images.length;
+        showImage(currentIndex);
+      }
+
+      setInterval(nextImage, 3000); // Change image every 3 seconds
+      showImage(currentIndex);
+    });
+  }
+</script>
+</head>
+<body>
+
+<div class="container-case9-1">
+  <div class="column-case9-1">
+    <img class="image-case9-1" src="https://libapps.s3.amazonaws.com/accounts/361989/images/Leaf_from_Herbarius.jpg" alt="Image 1">
+    <div class="title-case9-1">LEAF FROM HERBARIUS ZU TEUTSCH</div>
+    <div class="content-case9-1">
+      <p>Augsburg. 1499</p>
+      <p>From ancient times until the 20th century, the term materia medica was used to describe the substances and therapeutic properties of natural products used 
+          for medicinal purposes. Dioscorides, a 1st century Greek physician, wrote the first extensive pharmacopeia, a work which remained in use for 15 centuries
+          and is the ancestor of our leaf. This single leaf, printed by Hans Schonsperger, is a German version of the Latin Hortus sanitatis published in Mainz.
+          The hand-colored woodcut on this leaf, though printed in reverse, can also be seen in the Wellcome Collection’s Herbarius. Notable features in this edition 
+          include double columns for text and smaller illustrations, changes made to reduce the amount of paper needed to print the book. It’s difficult to identify 
+          this plant even with the help of the caption on the verso of the leaf.</p>
+    </div>
+  </div>
+  
+  <div class="column-case9-1">
+    <img class="image-case9-1" src="https://libapps.s3.amazonaws.com/accounts/361989/images/Eclectic_physiology.jpg" alt="Image 2">
+    <div class="title-case9-1">THE ECLECTIC PHYSIOLOGY OR GUIDE TO HEALTH</div>
+    <div class="content-case9-1">
+      <p>New York. 1888</p>
+      <p>Many books on medical topics printed in the 19th century were published as schoolbooks. By 1850, instruction in physiology, hygiene, and physical training 
+          were standard part of education curricula. All three of these illustrated texts include basic information about anatomy and major bodily functions but the books 
+          produced in the 1880s emphasize the negative role alcohol, tobacco, and narcotics play in human health. This shift is due in part to the Woman’s Christian Temperance 
+          Union support for state legislation requiring temperance instruction in public schools.</p>
+    </div>
+  </div>
+</div>
+
+<div class="container-case9-1">
+  <div class="column-case9-1">
+    <img class="image-case9-1" src="https://libapps.s3.amazonaws.com/accounts/361989/images/Good-health.jpg" alt="Image 3">
+    <div class="title-case9-1">GOOD HEALTH MORE VALUABLE THAN GREAT RICHES</div>
+    <div class="content-case9-1">
+      <p>D. Mortimore</p>
+      <p>Memphis. 1867</p>
+      <p>In 19th century Tennessee, as was the case elsewhere in the country, doctors offering cures for every imaginable disease peddled their products and services. Mortimore was one of these.
+        Tennessee didn’t require licensing of physicians until 1889 so potential patients had no way of verifying the credibility of the practitioner or the cure except through testimonials like the
+        ones filling the pages of this pamphlet.</p>
+    </div>
+  </div>
+  <div class="column-case9-1">
+    <img class="image-case9-1" src="https://libapps.s3.amazonaws.com/accounts/361989/images/Botanic_physician_tp.jpg" alt="Image 4">
+    <div class="title-case9-1">
+      THE BOTANIC PHYSICIAN, OR FAMILY MEDICAL ADVISER</div>
+    <div class="content-case9-1"><p>J. E. Carter</p>
+                          <p>Madisonville, Tennessee. 1837</p>
+    </div>
+  </div>
+  </div>
+
+  <div class="container-case9-1">
+  <div class="column-case9-1">
+    <img class="image-case9-1" src="https://libapps.s3.amazonaws.com/accounts/361989/images/Cholera.jpg" alt="Image 5">
+    <div class="title-case9-1">CHOLERA AS IT APPEARED IN NASHVILLE</div>
+    <div class="content-case9-1"><p>W. K. Bowling</p>
+      <p>Nashville. 1866
+      <p>Unlike Mortimore, William K. Bowling’s credentials are well-known. He taught at the Medical Department of the University of Nashville and founded the Nashville
+          Journal of Medicine and Surgery in 1851. This pamphlet is one of a number he wrote about the periodic cholera epidemics and their effect on public health.</p>
+        </div>
+  </div>
+
+  <div class="column-case9-1">
+    <div class="slideshow-case9-1">
+      <img src="https://libapps.s3.amazonaws.com/accounts/361989/images/Know-your-body.jpg" alt="Image 6-1">
+      <img src="https://libapps.s3.amazonaws.com/accounts/361989/images/Know-your-body-2.jpg" alt="Image 6-2">
+      <img src="https://libapps.s3.amazonaws.com/accounts/361989/images/Know-your-body-3.jpg" alt="Image 6-3">
+    </div>
+    <div class="title-case9-1">THE HUMAN BODY</div>
+    <div class="content-case9-1">
+      <p>Richard Walker and Rachel</p>
+      <p>London. 2018</p>
+      <p>Sixteenth century anatomy books were some of the first books to utilize movable elements, specifically flaps, which allowed the reader to “dissect”
+          the body by lifting layers of skin and muscle to reveal the organs underneath. At first, these movable books were produced for a select circle of
+          anatomists and physicians but by the 19th century, flap books were common teaching tools used by aspiring medical practitioners as well as laymen.
+          Today, pop-ups add a new, three-dimensional element to popular anatomy books designed for children and adults. This Victorian inspired example utilizes unique,
+          interlocking folded layers combined with simple flaps to create a complex, deep dive down into the workings of human physiology.</p>
+    </div>
+  </div>
+</div>
+
+<div class="container-case9-1">
+  <div class="column-case9-1">
+    <div class="slideshow-case9-1">
+      <img src="https://libapps.s3.amazonaws.com/accounts/361989/images/Physiology-and-calisthenics-p-21.jpg" alt="Image 7-1">
+      <img src="https://libapps.s3.amazonaws.com/accounts/361989/images/Physiology-and-calisthenics.jpg" alt="Image 7-2">
+    </div>
+    <div class="title-case9-1">PHYSIOLOGY AND CALISTHENICS</div>
+    <div class="content-case9-1">
+      <p>Catharine E. Beecher</p>
+      <p>New York. 1858</p>
+    </div>
+  </div>
+  
+  <div class="column-case9-1">
+    <div class="slideshow-case9-1">
+      <img src="https://libapps.s3.amazonaws.com/accounts/361989/images/Medical-adviser-tp.jpg" alt="Image 8-1">
+      <img src="https://libapps.s3.amazonaws.com/accounts/361989/images/Medical-adviser.jpg" alt="Image 8-2">
+    </div>
+    <div class="title-case9-1">MEDICAL ADVISER</div>
+    <div class="content-case9-1">
+      <p>Rezin Thompson</p>
+      <p>Germantown, Tennessee. 1860</p>
+      <p>Early 19th century publishing in Tennessee included numerous examples of practical medical works. Although he doesn’t reference Samuel Thomson’s botanicism
+          specifically, Carter was clearly a proponent of his plant-based, populist approach to medicine. If it is true, as Carter states in his introduction,
+          that “the same earth which yields our food, produces our medicine,” then his book’s materia medica section and dispensatory with more than 200 recipes
+          should prepare anyone with plain common sense to follow instructions and create their own remedies. Thompson’s Medical Adviser, like Carter’s work,
+          addresses a broad audience but he drops the botanic emphasis and provides a much more substantive discussion of human diseases.</p>
+    </div>
+  </div>
+</div>
+
+<div class="container-case9-1">
+  <div class="column-case9-1">
+    <div class="slideshow-case9-1">
+      <img src="https://libapps.s3.amazonaws.com/accounts/361989/images/Horse-back-riding-e.jpg" alt="Image 9-1">
+      <img src="https://libapps.s3.amazonaws.com/accounts/361989/images/Horse_back_riding_advert.jpg" alt="Image 9-2">
+    </div>
+    <div class="title-case9-1">HORSE-BACK RIDING FROM A MEDICAL POINT OF VIEW</div>
+    <div class="content-case9-1">
+      <p>New York. 1878</p>
+      <p>The Warden Memorial Equine collection contains a plethora of work on horse health and well-being, but this small volume addresses the medical status of the rider, 
+        not the horse. Exercise is an obvious benefit of riding. Durant goes further, explaining its salutary effect on circulation of the blood, respiration, 
+        digestion, and perspiration. His list of diseases for which riding is therapeutic includes anemia, syphilis, gout, diabetes, and fever.</p>
+    </div>
+  </div>
+  
+  <div class="column-case9-1">
+    <div class="slideshow-case9-1">
+      <img src="https://libapps.s3.amazonaws.com/accounts/361989/images/Childs-health-primer.jpg" alt="Image 10-1">
+      <img src="https://libapps.s3.amazonaws.com/accounts/361989/images/Childs-health-primer-pg-43.jpg" alt="Image 10-2">
+      <img src="https://libapps.s3.amazonaws.com/accounts/361989/images/Childs-health-primer-tp.jpg" alt="Image 10-3">
+      <img src="https://libapps.s3.amazonaws.com/accounts/361989/images/Childs-health-primer-pg-40.jpg" alt="Image 10-4">
+    </div>
+    <div class="title-case9-1">CHILD’S HEALTH PRIMER</div>
+    <div class="content-case9-1">
+      <p>New York. 1885</p>
+    </div>
+  </div>
+</div>
+
+</body>
+</html>

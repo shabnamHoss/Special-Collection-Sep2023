@@ -1,0 +1,193 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="stylesheet" href="styles.css">
+  <script src="script.js" defer></script>
+  <title>Image Gallery</title>
+
+  <style>
+      .gallery-c8 {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        margin-top: 20px;
+    }
+
+    .row-c8 {
+        display: flex;
+        justify-content: center;
+        margin-bottom: 10px;
+        border: 5px;
+    }
+
+    .image-container-c8 {
+        margin: 0 10px;
+        width: 150px;
+        height: 150px;
+        overflow: hidden;
+    }
+
+    .image-container-c8 img {
+        width: 100%;
+        height: 100%;
+        object-fit: cover;
+        cursor: pointer;
+    }
+
+    .popup-box-c8 {
+        display: none;
+        position: fixed;
+        z-index: 1000;
+        top: 50%;
+        /* Adjust the vertical position */
+        left: 50%;
+        /* Adjust the horizontal position */
+        transform: translate(-50%, -50%);
+        width: 90%;
+        /* Adjust the maximum width */
+        max-height: 100%;
+        /* Adjust the maximum height */
+        background-color: rgba(0, 0, 0, 0.9);
+        overflow: auto;
+        text-align: center;
+        padding: 13px;
+        margin: 13px;
+        box-shadow: 0 2px 10px rgba(0, 0, 0, 0.5);
+    }
+
+    .popup-image-c8 {
+        width: 60%;
+        /* height: 100%; */
+    }
+
+    .close-c8 {
+        position: absolute;
+        top: 15px;
+        right: 15px;
+        font-size: 30px;
+        color: white;
+        cursor: pointer;
+    }
+
+    .image-details-c8 {
+        color: white;
+        text-align: center;
+        padding: 20px;
+        width: 40%;
+    }
+
+    .image-details-c8 h2 {
+        font-size: 1.5em;
+        margin-bottom: 10px;
+    }
+
+    .image-details-c8 p {
+        margin: 10px 0;
+
+    }
+</style>
+<body>
+    <div class="gallery-c8">
+        <!--ONE SINGLE IMAGE-->
+          <div class="row-c8">
+            <!--THE NEW-ENGLAND FARRIER, AND FAMILY PHYSICIAN-->
+            <div class="image-container-c8"><img alt="Image 1" loading="lazy" src="https://libapps.s3.amazonaws.com/accounts/361989/images/New-England-Farrier.jpg" /></div>
+             <!--THE TRUE METHOD OF DIETING HORSES--> 
+            <div class="image-container-c8"><img alt="Image 2" loading="lazy" src="https://libapps.s3.amazonaws.com/accounts/361989/images/True-method-of-dieting-horses-1721.jpg" /></div>
+            <!--THE ARMY HORSE IN ACCIDENT AND DISEASE-->
+            <div class="image-container-c8"><img alt="Image 3" loading="lazy" src="https://libapps.s3.amazonaws.com/accounts/361989/images/Army-horse.jpg" /></div>
+              <!--MODERN HORSESHOEING-->
+            <div class="image-container-c8"><img alt="Image 4" loading="lazy" src="https://libapps.s3.amazonaws.com/accounts/361989/images/Modern-horseshoeing.jpg" /></div>
+             <!--EVERY MAN HIS OWN FARRIER-->   
+            <div class="image-container-c8"><img alt="Image 5" loading="lazy" src="https://libapps.s3.amazonaws.com/accounts/361989/images/Every-man-his-own-farrier.jpg" /></div>
+          </div>
+        </div>
+
+        <div class="popup-box-c8"><span class="close-c8">&times;</span> <img class="popup-image-c8" loading="lazy" src="" />
+        <p class="image-details-c8">&nbsp;</p>
+        </div>
+<!-- JavaScript -->
+    <script>
+    const imageContainers = document.querySelectorAll('.image-container-c8');
+    const popup = document.querySelector('.popup-box-c8');
+    const popupImage = document.querySelector('.popup-image-c8');
+    const imageDetails = document.querySelector('.image-details-c8');
+    const closePopup = document.querySelector('.close-c8');
+    const imageInfo = [{
+        filename: 'image1.jpg',
+        title: 'THE NEW-ENGLAND FARRIER, AND FAMILY PHYSICIAN ',
+        sentences: [' 1879']
+    }, {
+        filename: 'image2.jpg',
+        title: 'THE TRUE METHOD OF DIETING HORSES ',
+        sentences: ['W. Gibson', 'Third edition, corrected' , 'London. 1731' , 'Some publications on horse care took particular interest in one aspect of the subject. William Gibson, author of The Farrier’s New Guide (1720), Farrier’s Dispensatory (1721), and A New Treatise on the Diseases of Horses (1751), offers extensive guidance on feeding horses in this compact volume. He borrowed sections from illustrious predecessors, Jacques de Solleysel and the Duke of Newcastle, but his contributions on diet are original. Gibson discusses feeding regimes for horses at rest, for draught horses, travelling horses, and racehorses. The latter’s diet should include stale, never fresh, “horse-bread”, a high protein baked mixture of peas, fava beans, and wheat flour.']
+    }, {
+        filename: 'image3.jpg',
+        title: 'THE ARMY HORSE IN ACCIDENT AND DISEASE',
+        sentences: ['1Revised edition', 'Washington. 1909', 'Horses were an important part of the war machine until the 20th century when trench warfare, barbed wire, and machine guns drastically reduced their effectiveness on the battlefield. But, up to that point, manuals like this one helped soldiers select, maintain, and treat their mounts. Other handbooks of the period offered similar information but the treatment of tropical diseases in this book is unique.']
+    }, {
+        filename: 'image4.jpg',
+        title: 'MODERN HORSESHOEING',
+        sentences: ['G. Fleming', 'Chicago. 1904' , 'This work deals exclusively with shoeing horses unlike most of the books in this case which focus on equine health and medical treatments. Fleming begins with a short overview of the anatomy of the foot and hoof and then covers the shoeing process, from preparing the hoof and shoe to attaching and rasping the shoe.']
+    }, {
+        filename: 'image5.jpg',
+        title: 'EVERY MAN HIS OWN FARRIER',
+        sentences: ['Francis Clater', 'Twenty-second edition' , 'London. 1813', 'The popularity and longevity of some writings on farriery is hard to underestimate. This title, originally published in 1783, went through 30 editions, with the later ones edited first by Clater’s son, John, then by Edward Mayhew, J.S. Skinner, and D. McTaggart. This handbook is unusually well laid out, outlining first the nature and symptoms of every disorder, followed by the best methods of cure, and then, methods of preparing and compounding medicines in a series of consecutively numbered recipes. Clater’s work as a chemist and druggist no doubt informs his advice to avoid “bad drugs”—prepared from damaged or adulterated seeds and roots.']
+    }];
+    let currentImageIndex = 0;
+
+function updatePopupImage(index) {
+    const {
+        title,
+        sentences,
+        filename
+    } = imageInfo[index];
+    popupImage.src = imageContainers[index].querySelector('img').src;
+    imageDetails.innerHTML = `
+        <h2>${title}</h2>`;
+    sentences.forEach(sentence => {
+        imageDetails.innerHTML += `
+            <p>${sentence}</p>`;
+    });
+    currentImageIndex = index;
+}
+
+function showPopup(index) {
+    popup.style.display = 'flex';
+    updatePopupImage(index);
+}
+
+function closePopupBox() {
+    popup.style.display = 'none';
+}
+
+imageContainers.forEach((container, index) => {
+    const image = container.querySelector('img');
+    image.addEventListener('click', () => {
+        showPopup(index);
+    });
+});
+
+closePopup.addEventListener('click', () => {
+    closePopupBox();
+});
+
+document.addEventListener('keydown', event => {
+    if (event.key === 'Escape') {
+        closePopupBox();
+    } else if (event.key === 'ArrowLeft') {
+        if (currentImageIndex > 0) {
+            updatePopupImage(currentImageIndex - 1);
+        }
+    } else if (event.key === 'ArrowRight') {
+        if (currentImageIndex < imageContainers.length - 1) {
+            updatePopupImage(currentImageIndex + 1);
+        }
+    }
+});
+
+    </script>
+</body>
+</html>

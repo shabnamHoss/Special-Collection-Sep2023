@@ -1,0 +1,195 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="stylesheet" href="styles.css">
+  <script src="script.js" defer></script>
+  <title>Image Gallery</title>
+
+  <style>
+    .gallery-c11 {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      margin-top: 20px;
+    }
+
+    .row-c11 {
+      display: flex;
+      justify-content: center;
+      margin-bottom: 10px;
+      border: 5px;
+    }
+
+    .image-container-c11 {
+      margin: 0 10px;
+      width: 150px;
+      height: 150px;
+      overflow: hidden;
+    }
+
+    .image-container-c11 img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      cursor: pointer;
+    }
+
+    .popup-box-c11 {
+      display: none;
+      position: fixed;
+      z-index: 1000;
+      top: 50%;
+      left: 50%;
+      transform: translate(-50%, -50%);
+     
+      max-height: 100%;
+      background-color: rgba(0, 0, 0, 0.9);
+      overflow: auto;
+      text-align: center;
+      padding: 13px;
+      margin: 13px;
+      box-shadow: 0 2px 10px rgba(0, 0, 0, 0.5);
+    }
+
+    .popup-image-c11 {
+      width: 100%; /* Full width image */
+      max-height: 100vh; /* Adjust to desired height */
+     
+    }
+
+    .close-c11 {
+      position: absolute;
+      top: 15px;
+      right: 15px;
+      font-size: 30px;
+      color: #1c2b59;
+      cursor: pointer;
+    }
+    </style>
+</head>
+<body>
+    <div class="gallery-c11">
+        <!--THE DUTY OF MINISTERS OF THE GOSPEL-->
+        <div class="row-c11">
+            <div class="image-container-c11"><img alt="Image 1" loading="lazy" src="https://libapps.s3.amazonaws.com/accounts/361989/images/Duty-of-ministers-tp.jpg" /></div>
+
+        </div>
+        <!--THE PRACTICE OF PRINTING -->
+        <div class="row-c11">
+            <div class="image-container-c11"><img alt="Image 2" loading="lazy" src="https://libapps.s3.amazonaws.com/accounts/361989/images/Practice-of-printing.jpg" /></div>
+
+            <div class="image-container-c11"><img alt="Image 3" loading="lazy" src="https://libapps.s3.amazonaws.com/accounts/361989/images/Practice-of-printing-2.jpg" /></div>
+
+        </div>
+        <!---THE HOP FARMER-->
+        <div class="row-c11">
+            <div class="image-container-c11"><img alt="Image 4" loading="lazy" src="https://libapps.s3.amazonaws.com/accounts/361989/images/Hop-farmer-tp.jpg" /></div>
+
+            <div class="image-container-c11"><img alt="Image 5" loading="lazy" src="https://libapps.s3.amazonaws.com/accounts/361989/images/Hop-farmer-p-170.jpg" /></div>
+
+            <div class="image-container-c11"><img alt="Image 6" loading="lazy" src="https://libapps.s3.amazonaws.com/accounts/361989/images/Hop-farmer-map.jpg" /></div>
+
+        </div>
+   
+        <!-- BOOKMAKING ON THE DISTAFF SIDE-->
+        <div class="row-c11">
+            <div class="image-container-c11"><img alt="Image 7" loading="lazy" src="https://libapps.s3.amazonaws.com/accounts/361989/images/Distaff-side-tp.jpg" /></div>
+
+            <div class="image-container-c11"><img alt="Image 8" loading="lazy" src="https://libapps.s3.amazonaws.com/accounts/361989/images/Distaff-side.jpg" /></div>
+       
+            <div class="image-container-c11"><img alt="Image 9" loading="lazy" src="https://libapps.s3.amazonaws.com/accounts/361989/images/Distaff-side-2.jpg" /></div>
+
+            <div class="image-container-c11"><img alt="Image 10" loading="lazy" src="https://libapps.s3.amazonaws.com/accounts/361989/images/Distaff-side-3.jpg" /></div>
+
+            <div class="image-container-c11"><img alt="Image 11" loading="lazy" src="https://libapps.s3.amazonaws.com/accounts/361989/images/Printing-on-the-distaff-side.jpg" /></div>
+        </div>
+
+        <!--MAMMON-->
+        <div class="row-c11">
+            <div class="image-container-c11"><img alt="Image 12" loading="lazy" src="https://libapps.s3.amazonaws.com/accounts/361989/images/Mammon-cover.jpg" /></div>
+
+            <div class="image-container-c11"><img alt="Image 13" loading="lazy" src="https://libapps.s3.amazonaws.com/accounts/361989/images/Mammon-tp.jpg" /></div>
+
+            <div class="image-container-c11"><img alt="Image 14" loading="lazy" src="https://libapps.s3.amazonaws.com/accounts/361989/images/Mammon-detail.jpg" /></div>
+        </div>
+        <!--WHY BEER MATTERS-->
+        <div class="row-c11">
+            <div class="image-container-c11"><img alt="Image 15" loading="lazy" src="https://libapps.s3.amazonaws.com/accounts/361989/images/Why-beer-matters-cover.jpg" /></div>
+
+            <div class="image-container-c11"><img alt="Image 16" loading="lazy" src="https://libapps.s3.amazonaws.com/accounts/361989/images/why-beer-matters-tp.jpg" /></div>
+
+            <div class="image-container-c11"><img alt="Image 17" loading="lazy" src="https://libapps.s3.amazonaws.com/accounts/361989/images/Why-beer-matters-colophon.jpg" /></div>
+        
+        </div>
+    </div>
+
+<div class="popup-box-c11">
+    <span class="close-c11">&times;</span>
+    <img class="popup-image-c11" loading="lazy" src="" />
+  </div>
+  
+  <!-- JavaScript -->
+<script>
+    const imageContainers = document.querySelectorAll('.image-container-c11');
+    const popup = document.querySelector('.popup-box-c11');
+    const popupImage = document.querySelector('.popup-image-c11');
+    const closePopup = document.querySelector('.close-c11');
+    const imageInfo = [
+      // Your image information objects here
+    ];
+    let currentImageIndex = 0;
+  
+    imageContainers.forEach((container, index) => {
+  const image = container.querySelector('img');
+  image.addEventListener('click', () => {
+    currentImageIndex = index;
+    displayPopup(currentImageIndex);
+  });
+});
+
+function displayPopup(index) {
+  popup.style.display = 'flex';
+  const clickedImage = imageContainers[index].querySelector('img');
+  popupImage.src = clickedImage.src;
+  popupImage.style.maxWidth = clickedImage.naturalWidth + 'px';
+  popupImage.style.maxHeight = clickedImage.naturalHeight + 'px';
+}
+  
+    closePopup.addEventListener('click', () => {
+      popup.style.display = 'none';
+    });
+  
+    function closeAndResetPopup() {
+      popup.style.display = 'none';
+      document.removeEventListener('keydown', handleKeyPress);
+    }
+  
+    function handleKeyPress(event) {
+      if (event.key === 'ArrowLeft') {
+        currentImageIndex = (currentImageIndex - 1 + imageContainers.length) % imageContainers.length;
+        displayPopup(currentImageIndex);
+      } else if (event.key === 'ArrowRight') {
+        currentImageIndex = (currentImageIndex + 1) % imageContainers.length;
+        displayPopup(currentImageIndex);
+      } else if (event.key === 'Escape') {
+        closeAndResetPopup();
+      }
+    }
+  
+    document.addEventListener('keydown', (event) => {
+      if (popup.style.display === 'flex') {
+        handleKeyPress(event);
+      }
+    });
+  
+    popup.addEventListener('click', (event) => {
+      if (event.target === popup) {
+        closeAndResetPopup();
+      }
+    });
+  </script>
+  
+</body>
+</html>

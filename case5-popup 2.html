@@ -1,0 +1,227 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="stylesheet" href="styles.css">
+  <script src="script.js" defer></script>
+  <title>Image Gallery</title>
+
+  <style>
+    .gallery-c5 {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      margin-top: 20px;
+    }
+
+    .row-c5 {
+      display: flex;
+      justify-content: center;
+      margin-bottom: 10px;
+      border: 5px;
+    }
+
+    .image-container-c5 {
+      margin: 0 10px;
+      width: 150px;
+      height: 150px;
+      overflow: hidden;
+    }
+
+    .image-container-c5 img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      cursor: pointer;
+    }
+
+    .popup-box-c5 {
+      display: none;
+      position: fixed;
+      z-index: 1000;
+      top: 50%;
+      left: 50%;
+      transform: translate(-50%, -50%);
+     
+      max-height: 100%;
+      background-color: rgba(0, 0, 0, 0.9);
+      overflow: auto;
+      text-align: center;
+      padding: 13px;
+      margin: 13px;
+      box-shadow: 0 2px 10px rgba(0, 0, 0, 0.5);
+    }
+
+    .popup-image-c5 {
+      width: 100%; /* Full width image */
+      max-height: 100vh; /* Adjust to desired height */
+     
+    }
+
+    .close-c5 {
+      position: absolute;
+      top: 15px;
+      right: 15px;
+      font-size: 30px;
+      color: #1c2b59;
+      cursor: pointer;
+    }
+    </style>
+</head>
+<body>
+    <div class="gallery-c5">
+        <!--THE PRACTICAL FARRIER, FOR FARMERS-->
+        <div class="row-c5">
+            <div class="image-container-c5"><img alt="Image 1" loading="lazy" src="https://libapps.s3.amazonaws.com/accounts/361989/images/Practical-farrier-for-farmers.jpg" /></div>
+
+            <div class="image-container-c5"><img alt="Image 2" loading="lazy" src="https://libapps.s3.amazonaws.com/accounts/361989/images/Practical-farrier-for-farmers-2.jpg" /></div>
+
+        </div>
+        <!--THE GENTLEMAN’S VETERINARY MONITOR AND STABLE GUIDE -->
+        <div class="row-c5">
+
+            <div class="image-container-c5"><img alt="Image 3" loading="lazy" src="https://libapps.s3.amazonaws.com/accounts/361989/images/Gentlemans-veterinary-monitor.jpg" /></div>
+
+            <div class="image-container-c5"><img alt="Image 4" loading="lazy" src="https://libapps.s3.amazonaws.com/accounts/361989/images/Gentlemans-veterinary-monitor-contents.jpg" /></div>
+
+            <div class="image-container-c5"><img alt="Image 5" loading="lazy" src="https://libapps.s3.amazonaws.com/accounts/361989/images/Gentlemans-veterinary-monitor-tp.jpg" /></div>
+
+            <div class="image-container-c5"><img alt="Image 6" loading="lazy" src="https://libapps.s3.amazonaws.com/accounts/361989/images/Pharmacopoeia-Hippiatrica.jpg" /></div>
+
+        </div>
+   
+        <!-- THE NEW-ENGLAND FARRIER-->
+        <div class="row-c5">
+            <div class="image-container-c5"><img alt="Image 7" loading="lazy" src="https://libapps.s3.amazonaws.com/accounts/361989/images/New-England-Farrier.jpg" /></div>
+
+            <div class="image-container-c5"><img alt="Image 8" loading="lazy" src="https://libapps.s3.amazonaws.com/accounts/361989/images/New-England-Farrier-cover.jpg" /></div>
+       
+             </div>
+
+        <!--THE MODERN SYSTEM OF FARRIERY-->
+        <div class="row-c5">
+            <div class="image-container-c5"><img alt="Image 9" loading="lazy" src="https://libapps.s3.amazonaws.com/accounts/361989/images/Modern-system-of-farriery-2.jpg" /></div>
+
+            <div class="image-container-c5"><img alt="Image 10" loading="lazy" src="https://libapps.s3.amazonaws.com/accounts/361989/images/Modern-system-of-farriery-3.jpg" /></div>
+       
+            <div class="image-container-c5"><img alt="Image 11" loading="lazy" src="https://libapps.s3.amazonaws.com/accounts/361989/images/Modern-system-of-farriery-4.jpg" /></div>
+
+            <div class="image-container-c5"><img alt="Image 12" loading="lazy" src="https://libapps.s3.amazonaws.com/accounts/361989/images/Modern-system-of-farriery.jpg" /></div>
+
+            
+        </div>
+
+        <!--THE COMPLEAT HORSE-MAN, AND EXPERT FERRIER-->
+        <div class="row-c5">
+          <div class="image-container-c5"><img alt="Image 13" loading="lazy" src="https://libapps.s3.amazonaws.com/accounts/361989/images/Compleat-horseman.jpg" /></div>
+
+          <div class="image-container-c5"><img alt="Image 14" loading="lazy" src="https://libapps.s3.amazonaws.com/accounts/361989/images/Compleat-horseman-2.jpg" /></div>
+        </div>
+
+        <!--THE COMPLETE MODERN FARRIER-->
+        <div class="row-c5">
+
+            <div class="image-container-c5"><img alt="Image 15" loading="lazy" src="https://libapps.s3.amazonaws.com/accounts/361989/images/Complete-modern-farrier-tp.jpg" /></div>
+
+            <div class="image-container-c5"><img alt="Image 16" loading="lazy" src="https://libapps.s3.amazonaws.com/accounts/361989/images/Complete-modern-farrier-2.jpg" /></div>
+
+            <div class="image-container-c5"><img alt="Image 17" loading="lazy" src="https://libapps.s3.amazonaws.com/accounts/361989/images/Complete-modern-farrier-3.jpg" /></div>
+           
+            <div class="image-container-c5"><img alt="Image 17" loading="lazy" src="https://libapps.s3.amazonaws.com/accounts/361989/images/Complete-modern-farrier-4.jpg" /></div>
+        
+        </div>
+
+        <!--A TREATISE ON THE STRANGLES AND FEVERS OF HORSES-->
+        <div class="row-c5">
+
+          <div class="image-container-c5"><img alt="Image 18" loading="lazy" src="https://libapps.s3.amazonaws.com/accounts/361989/images/Treatise-on-the-strangles-cover.jpg" /></div>
+
+          <div class="image-container-c5"><img alt="Image 19" loading="lazy" src="https://libapps.s3.amazonaws.com/accounts/361989/images/Treatise-on-the-strangles-tp.jpg" /></div>
+
+      </div>
+    </div>
+        <!--ONE SINGLE IMAGE-->
+      <div class="gallery-c5">
+        <div class="row-c5">
+          <div class="image-container-c5"><img alt="Image 20" loading="lazy" src="https://libapps.s3.amazonaws.com/accounts/361989/images/New-England-Farrier.jpg" /></div>
+            
+          <div class="image-container-c5"><img alt="Image 21" loading="lazy" src="https://libapps.s3.amazonaws.com/accounts/361989/images/True-method-of-dieting-horses-1721.jpg" /></div>
+          
+          <div class="image-container-c5"><img alt="Image 22" loading="lazy" src="https://libapps.s3.amazonaws.com/accounts/361989/images/Army-horse.jpg" /></div>
+            
+          <div class="image-container-c5"><img alt="Image 23" loading="lazy" src="https://libapps.s3.amazonaws.com/accounts/361989/images/Modern-horseshoeing.jpg" /></div>
+
+          <div class="image-container-c5"><img alt="Image 24" loading="lazy" src="https://libapps.s3.amazonaws.com/accounts/361989/images/Every-man-his-own-farrier.jpg" /></div>
+        </div>
+      </div>
+
+<div class="popup-box-c5">
+    <span class="close-c5">&times;</span>
+    <img class="popup-image-c5" loading="lazy" src="" />
+  </div>
+  
+  <!-- JavaScript -->
+<script>
+    const imageContainers = document.querySelectorAll('.image-container-c5');
+    const popup = document.querySelector('.popup-box-c5');
+    const popupImage = document.querySelector('.popup-image-c5');
+    const closePopup = document.querySelector('.close-c5');
+    const imageInfo = [
+      // Your image information objects here
+    ];
+    let currentImageIndex = 0;
+  
+    imageContainers.forEach((container, index) => {
+  const image = container.querySelector('img');
+  image.addEventListener('click', () => {
+    currentImageIndex = index;
+    displayPopup(currentImageIndex);
+  });
+});
+
+function displayPopup(index) {
+  popup.style.display = 'flex';
+  const clickedImage = imageContainers[index].querySelector('img');
+  popupImage.src = clickedImage.src;
+  popupImage.style.maxWidth = clickedImage.naturalWidth + 'px';
+  popupImage.style.maxHeight = clickedImage.naturalHeight + 'px';
+}
+  
+    closePopup.addEventListener('click', () => {
+      popup.style.display = 'none';
+    });
+  
+    function closeAndResetPopup() {
+      popup.style.display = 'none';
+      document.removeEventListener('keydown', handleKeyPress);
+    }
+  
+    function handleKeyPress(event) {
+      if (event.key === 'ArrowLeft') {
+        currentImageIndex = (currentImageIndex - 1 + imageContainers.length) % imageContainers.length;
+        displayPopup(currentImageIndex);
+      } else if (event.key === 'ArrowRight') {
+        currentImageIndex = (currentImageIndex + 1) % imageContainers.length;
+        displayPopup(currentImageIndex);
+      } else if (event.key === 'Escape') {
+        closeAndResetPopup();
+      }
+    }
+  
+    document.addEventListener('keydown', (event) => {
+      if (popup.style.display === 'flex') {
+        handleKeyPress(event);
+      }
+    });
+  
+    popup.addEventListener('click', (event) => {
+      if (event.target === popup) {
+        closeAndResetPopup();
+      }
+    });
+  </script>
+  
+  
+</body>
+</html>

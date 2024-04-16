@@ -1,0 +1,455 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="stylesheet" href="styles.css">
+  <script src="script.js" defer></script>
+  <title>Image Gallery</title>
+
+  <style>
+      .gallery-c4 {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        margin-top: 20px;
+    }
+
+    .row-c4 {
+        display: flex;
+        justify-content: center;
+        margin-bottom: 10px;
+        border: 5px;
+    }
+
+    .image-container-c4 {
+        margin: 0 10px;
+        width: 150px;
+        height: 150px;
+        overflow: hidden;
+    }
+
+    .image-container-c4 img {
+        width: 100%;
+        height: 100%;
+        object-fit: cover;
+        cursor: pointer;
+    }
+
+    .popup-box-c4 {
+        display: none;
+        position: fixed;
+        z-index: 1000;
+        top: 50%;
+        /* Adjust the vertical position */
+        left: 50%;
+        /* Adjust the horizontal position */
+        transform: translate(-50%, -50%);
+        width: 90%;
+        /* Adjust the maximum width */
+        max-height: 100%;
+        /* Adjust the maximum height */
+        background-color: rgba(0, 0, 0, 0.9);
+        overflow: auto;
+        text-align: center;
+        padding: 13px;
+        margin: 13px;
+        box-shadow: 0 2px 10px rgba(0, 0, 0, 0.5);
+    }
+
+    .popup-image-c4 {
+        width: 60%;
+        /* height: 100%; */
+    }
+
+    .close-c4 {
+        position: absolute;
+        top: 15px;
+        right: 15px;
+        font-size: 30px;
+        color: white;
+        cursor: pointer;
+    }
+
+    .image-details-c4 {
+        color: white;
+        text-align: center;
+        padding: 20px;
+        width: 40%;
+    }
+
+    .image-details-c4 h2 {
+        font-size: 1.5em;
+        margin-bottom: 10px;
+    }
+
+    .image-details-c4 p {
+        margin: 10px 0;
+
+    }
+</style>
+<body>
+    <div class="gallery-c4">
+        <!--1851 -->
+        <div class="row-c4">
+            <div class="image-container-c4"><img alt="Image 1" loading="lazy" src="https://libapps.s3.amazonaws.com/accounts/361989/images/1-Crystal-palace-cover-.jpg" /></div>
+
+            <div class="image-container-c4"><img alt="Image 2" loading="lazy" src="https://libapps.s3.amazonaws.com/accounts/361989/images/1a-crystal-palace-side-view.jpg" /></div>
+
+            <div class="image-container-c4"><img alt="Image 3" loading="lazy" src="https://libapps.s3.amazonaws.com/accounts/361989/images/1b-crystal-palace-top-view-.jpg" /></div>
+
+            <div class="image-container-c4"><img alt="Image 4" loading="lazy" src="https://libapps.s3.amazonaws.com/accounts/361989/images/1c-crystal-palace-interior-view-.jpg" /></div>
+
+        </div>
+
+        <div class="row-c4">
+            <div class="image-container-c4"><img alt="Image 6" loading="lazy" src="https://libapps.s3.amazonaws.com/accounts/361989/images/2-Telescopic-1851-cover-.jpg" /></div>
+
+            <div class="image-container-c4"><img alt="Image 7" loading="lazy" src="https://libapps.s3.amazonaws.com/accounts/361989/images/2a-Telescopic-1851-interior-view-.jpg" /></div>
+
+            <div class="image-container-c4"><img alt="Image 8" loading="lazy" src="https://libapps.s3.amazonaws.com/accounts/361989/images/2b-Telescopic-1851-interior-second-view-.jpg" /></div>
+        </div>
+   
+        <!-- 1893-->
+
+        <div class="row-c4">
+            <div class="image-container-c4"><img alt="Image 9" loading="lazy" src="https://libapps.s3.amazonaws.com/accounts/361989/images/1-popup-book-souvenir.jpg" /></div>
+
+            <div class="image-container-c4"><img alt="Image 10" loading="lazy" src="https://libapps.s3.amazonaws.com/accounts/361989/images/2-Columbus-in-sight-of-land.jpg" /></div>
+
+            <div class="image-container-c4"><img alt="Image 11" loading="lazy" src="https://libapps.s3.amazonaws.com/accounts/361989/images/3-1893-worlds-fair-postcard_front.jpg" /></div>
+
+            <div class="image-container-c4"><img alt="Image 12" loading="lazy" src="https://libapps.s3.amazonaws.com/accounts/361989/images/4a-1893-half-dollar-heads.jpg" /></div>
+
+            <div class="image-container-c4"><img alt="Image 13" loading="lazy" src="https://libapps.s3.amazonaws.com/accounts/361989/images/4b-1893-half-dollar-tails.jpg" /></div>
+        </div>
+
+        <!--1904-->
+        <div class="row-c4">
+          <div class="image-container-c4"><img alt="Image 14" loading="lazy" src="https://libapps.s3.amazonaws.com/accounts/361989/images/1-1904-fair-sights-sounds-wonders-.jpg" /></div>
+
+          <div class="image-container-c4"><img alt="Image 15" loading="lazy" src="https://libapps.s3.amazonaws.com/accounts/361989/images/1a-sights-and-wonders.jpg" /></div>
+
+          <div class="image-container-c4"><img alt="Image 16" loading="lazy" src="https://libapps.s3.amazonaws.com/accounts/361989/images/1b-Sights-and-wonders.jpg" /></div>
+        </div>
+        <div class="row-c4">
+
+          <div class="image-container-c4"><img alt="Image 17" loading="lazy" src="https://libapps.s3.amazonaws.com/accounts/361989/images/2-St-Louis-Worlds-fair.jpg" /></div>
+
+          <div class="image-container-c4"><img alt="Image 18" loading="lazy" src="https://libapps.s3.amazonaws.com/accounts/361989/images/3-US-3182e.jpg" /></div>
+      </div>
+
+      <!--1933-->
+      <div class="row-c4">
+        <div class="image-container-c4"><img alt="Image 19" loading="lazy" src="https://libapps.s3.amazonaws.com/accounts/361989/images/1-federal-building.jpg" /></div>
+
+        <div class="image-container-c4"><img alt="Image 20" loading="lazy" src="https://libapps.s3.amazonaws.com/accounts/361989/images/2-fort-dearborn.jpg" /></div>
+
+        <div class="image-container-c4"><img alt="Image 21" loading="lazy" src="https://libapps.s3.amazonaws.com/accounts/361989/images/3-1933-chicago-thermometer.jpg" /></div>
+
+        <div class="image-container-c4"><img alt="Image 22" loading="lazy" src="https://libapps.s3.amazonaws.com/accounts/361989/images/4-1933-electrical-building.jpg" /></div>
+      </div>
+
+      <div class="row-c4">
+
+        <div class="image-container-c4"><img alt="Image 23" loading="lazy" src="https://libapps.s3.amazonaws.com/accounts/361989/images/5-1933-streets-of-paris.jpg" /></div>
+
+        <div class="image-container-c4"><img alt="Image 24" loading="lazy" src="https://libapps.s3.amazonaws.com/accounts/361989/images/6-1933-Chicago-WF-overlook.jpg" /></div>
+
+        <div class="image-container-c4"><img alt="Image 25" loading="lazy" src="https://libapps.s3.amazonaws.com/accounts/361989/images/7-1933-chicago-hall-of-science.jpg" /></div>
+    </div>
+
+    <!--1939 -->
+
+    <div class="row-c4">
+      <div class="image-container-c4"><img alt="Image 26" loading="lazy" src="https://libapps.s3.amazonaws.com/accounts/361989/images/1-1939-ballantine-beer-.jpg" /></div>
+
+      <div class="image-container-c4"><img alt="Image 27" loading="lazy" src="https://libapps.s3.amazonaws.com/accounts/361989/images/1a-Ballantine-2-.jpg" /></div>
+
+      <div class="image-container-c4"><img alt="Image 28" loading="lazy" src="https://libapps.s3.amazonaws.com/accounts/361989/images/1c-Ballantine-3-.jpg" /></div>
+
+      <div class="image-container-c4"><img alt="Image 29" loading="lazy" src="https://libapps.s3.amazonaws.com/accounts/361989/images/1d-Ballantine-4-.jpg" /></div>
+    </div>
+
+    <div class="row-c4">
+
+      <div class="image-container-c4"><img alt="Image 30" loading="lazy" src="https://libapps.s3.amazonaws.com/accounts/361989/images/2-NY-1939-stamp-Trylon-.jpg" /></div>
+
+      <div class="image-container-c4"><img alt="Image 31" loading="lazy" src="https://libapps.s3.amazonaws.com/accounts/361989/images/3-NYWF-1939-trylon-ny-fair-bldg.jpg" /></div>
+
+      <div class="image-container-c4"><img alt="Image 32" loading="lazy" src="https://libapps.s3.amazonaws.com/accounts/361989/images/4--NYWF-1939-food-building.jpg" /></div>
+
+      <div class="image-container-c4"><img alt="Image 33" loading="lazy" src="https://libapps.s3.amazonaws.com/accounts/361989/images/5-NYWF-1939-Admin-bldg.jpg" /></div>
+    </div>
+    
+    <!--1962 -->
+    <div class="row-c4">
+
+      <div class="image-container-c4"><img alt="Image 34" loading="lazy" src="https://libapps.s3.amazonaws.com/accounts/361989/images/1-seattle-program.jpg" /></div>
+
+      <div class="image-container-c4"><img alt="Image 35" loading="lazy" src="https://libapps.s3.amazonaws.com/accounts/361989/images/2-US853.jpg" /></div>
+
+      <div class="image-container-c4"><img alt="Image 36" loading="lazy" src="https://libapps.s3.amazonaws.com/accounts/361989/images/3-Seattle-wf.jpg" /></div>
+
+    </div>
+
+    <!--1964-1965-->
+    <div class="row-c4">
+
+        <div class="image-container-c4"><img alt="Image 37" loading="lazy" src="https://libapps.s3.amazonaws.com/accounts/361989/images/1-Peter-and-Wendy-See-the-worlds-fair-.jpg" /></div>
+
+        <div class="image-container-c4"><img alt="Image 38" loading="lazy" src="https://libapps.s3.amazonaws.com/accounts/361989/images/1a-Peter-and-Wendy.jpg" /></div>
+
+        <div class="image-container-c4"><img alt="Image 39" loading="lazy" src="https://libapps.s3.amazonaws.com/accounts/361989/images/2--US-1244-.jpg" /></div>
+
+        <div class="image-container-c4"><img alt="Image 40" loading="lazy" src="https://libapps.s3.amazonaws.com/accounts/361989/images/3-unisphere-nywf-1964.jpg" /></div>
+
+    </div>
+
+    <div class="row-c4">
+
+        <div class="image-container-c4"><img alt="Image 41" loading="lazy" src="https://libapps.s3.amazonaws.com/accounts/361989/images/4-NYWF-Schaefer-center-1964_65.jpg" /></div>
+
+        <div class="image-container-c4"><img alt="Image 42" loading="lazy" src="https://libapps.s3.amazonaws.com/accounts/361989/images/5-sweden-pav-at-nywf-1964.jpg" /></div>
+
+        <div class="image-container-c4"><img alt="Image 43" loading="lazy" src="https://libapps.s3.amazonaws.com/accounts/361989/images/6-1964-tip-tray.jpg" /></div>
+
+    </div>
+
+    <!--1982-->
+    <div class="row-c4">
+
+      <div class="image-container-c4"><img alt="Image 44" loading="lazy" src="https://libapps.s3.amazonaws.com/accounts/361989/images/1-Knoxville-postage-stamp-.jpg" /></div>
+
+      <div class="image-container-c4"><img alt="Image 45" loading="lazy" src="https://libapps.s3.amazonaws.com/accounts/361989/images/2-Knoxville-with-map.jpg" /></div>
+
+      <div class="image-container-c4"><img alt="Image 46" loading="lazy" src="https://libapps.s3.amazonaws.com/accounts/361989/images/3-Knoxville-sun.jpg" /></div>
+
+      <div class="image-container-c4"><img alt="Image 47" loading="lazy" src="https://libapps.s3.amazonaws.com/accounts/361989/images/4-knoxville-worlds-fair-brochure.jpg" /></div>
+
+    </div>
+</div>
+
+        <div class="popup-box-c4"><span class="close-c4">&times;</span> <img class="popup-image-c4" loading="lazy" src="" />
+        <p class="image-details-c4">&nbsp;</p>
+        </div>
+<!-- JavaScript -->
+    <script>
+    const imageContainers = document.querySelectorAll('.image-container-c4');
+    const popup = document.querySelector('.popup-box-c4');
+    const popupImage = document.querySelector('.popup-image-c4');
+    const imageDetails = document.querySelector('.image-details-c4');
+    const closePopup = document.querySelector('.close-c4');
+    const imageInfo = [{
+        filename: 'image1.jpg',
+        title: 'INTERIOR OF THE MAGNIFICENT NEW CRYSTAL-PALACE AT SYDENHAM',
+        sentences: [' 1854']
+    }, {
+        filename: 'image2.jpg',
+        title: 'INTERIOR OF THE MAGNIFICENT NEW CRYSTAL-PALACE AT SYDENHAM',
+        sentences: ['1854']
+    }, {
+        filename: 'image3.jpg',
+        title: 'INTERIOR OF THE MAGNIFICENT NEW CRYSTAL-PALACE AT SYDENHAM',
+        sentences: ['11854']
+    }, {
+        filename: 'image4.jpg',
+        title: 'INTERIOR OF THE MAGNIFICENT NEW CRYSTAL-PALACE AT SYDENHAM',
+        sentences: ['1854']
+    }, {
+        filename: 'image6.jpg',
+        title: 'TELESCOPIC VIEW OF THE GREAT EXHIBITION',
+        sentences: ['1851']
+    }, {
+        filename: 'image7.jpg',
+        title: 'TELESCOPIC VIEW OF THE GREAT EXHIBITION',
+        sentences: ['1851']
+    }, {
+        filename: 'image8.jpg',
+        title: 'TELESCOPIC VIEW OF THE GREAT EXHIBITION',
+        sentences: ['1851']
+    }, {
+        filename: 'image9.jpg',
+        title: 'WORLD’S COLUMBIAN EXPOSITION CHICAGO 1893',
+        sentences: ['1893']
+    }, {
+        filename: 'image10.jpg',
+        title: 'UNITED STATES. COLUMBIAN EXPOSITION ISSUE.  COLUMBUS IN SIGHT OF LAND',
+        sentences: ['1893', 'Part of the 16 Columbian Exposition Issue and issued in honor of the World’s Columbian Exposition. These stamps were the first commemorative stamps issued by the United States.  ']
+    }, {
+        filename: 'image11.jpg',
+        title: 'THE AGRICULTURAL BUILDING. OFFICIAL SOUVENIR POSTAL. WORLD’S COLUMBIAN EXPOSITION',
+        sentences: ['1893']
+    }, {
+        filename: 'image12.jpg',
+        title: 'UNITED STATES. SILVER HALF DOLLAR',
+        sentences: ['1893', 'First commemorative coin issued by the US Bureau of the Mint in 1892 and 1893. It was used to raise funds for the World’s Columbian Exposition and marked the quadricentennial of the first voyage of Christopher Columbus to the Americas.  The obverse shows the head of Columbus, and the reverse is his flag ship, the Santa Maria. The coins were sold for $1. ']
+    }, {
+        filename: 'image13.jpg',
+        title: 'UNITED STATES. SILVER HALF DOLLAR',
+        sentences: ['1893', 'First commemorative coin issued by the US Bureau of the Mint in 1892 and 1893. It was used to raise funds for the World’s Columbian Exposition and marked the quadricentennial of the first voyage of Christopher Columbus to the Americas.  The obverse shows the head of Columbus, and the reverse is his flag ship, the Santa Maria. The coins were sold for $1. ']
+    }, {
+        filename: 'image14.jpg',
+        title: 'SIGHTS, SCENES AND WONDERS AT THE WORLD’S FAIR: OFFICIAL BOOK OF VIEWS OF THE LOUISIANA PURCHASE EXPOSITION',
+        sentences: [' 1904']
+    }, {
+        filename: 'image15.jpg',
+        title: 'SIGHTS, SCENES AND WONDERS AT THE WORLD’S FAIR: OFFICIAL BOOK OF VIEWS OF THE LOUISIANA PURCHASE EXPOSITION. ',
+        sentences: ['1904']
+    }, {
+        filename: 'image16.jpg',
+        title: 'SIGHTS, SCENES AND WONDERS AT THE WORLD’S FAIR: OFFICIAL BOOK OF VIEWS OF THE LOUISIANA PURCHASE EXPOSITION. ',
+        sentences: ['1904']
+    }, {
+        filename: 'image17.jpg',
+        title: 'ENTRANCE PALACE OF LIBERAL ARTS. OFFICIAL SOUVENIR OF THE WORLD’S FAIR, ST. LOUIS',
+        sentences: ['1904']
+    }, {
+        filename: 'image18.jpg',
+        title: 'UNITED STATES. CELEBRATE THE CENTURY, 1900S: ST. LOUIS WORLD FAIR',
+        sentences: ['1998']
+    }, {
+        filename: 'image19.jpg',
+        title: 'UNITED STATES. FEDERAL BUILDING AT CHICAGO. CENTURY OF PROGRESS',
+        sentences: [' 1933']
+    }, {
+        filename: 'image20.jpg',
+        title: 'UNITED STATES. FORT DEARBORN. CENTURY OF PROGRESS',
+        sentences: ['1933']
+    }, {
+        filename: 'image21.jpg',
+        title: 'HAVOLINE THERMOMETER. CENTURY OF PROGRESS INTERNATIONAL EXPOSITION',
+        sentences: ['1933']
+    }, {
+        filename: 'image22.jpg',
+        title: 'COURT OF THE ELECTRICAL BUILDING. OFFICIAL POST CARD OF A CENTURY OF PROGRESS',
+        sentences: ['1933']
+    }, {
+        filename: 'image23.jpg',
+        title: 'STREETS OF PARIS',
+        sentences: ['1933']
+    }, {
+        filename: 'image24.jpg',
+        title: 'LOOKING SOUTH OVER THE WORLD’S FAIR GROUNDS',
+        sentences: ['1933']
+    }, {
+        filename: 'image25.jpg',
+        title: 'HALL OF SCIENCE, CHICAGO WORLD’S FAIR ',
+        sentences: ['1933']
+    }, {
+        filename: 'image26.jpg',
+        title: 'BALLANTINE INN PRESENTS BALLANTINE BOOK OF BALLADS',
+        sentences: [' 1939 ']
+    }, {
+        filename: 'image27.jpg',
+        title: 'BALLANTINE INN PRESENTS BALLANTINE BOOK OF BALLADS',
+        sentences: ['1939 ']
+    }, {
+        filename: 'image28.jpg',
+        title: 'BALLANTINE INN PRESENTS BALLANTINE BOOK OF BALLADS',
+        sentences: ['1939 ']
+    }, {
+        filename: 'image29.jpg',
+        title: 'BALLANTINE INN PRESENTS BALLANTINE BOOK OF BALLADS',
+        sentences: ['1939 ']
+    }, {
+        filename: 'image30.jpg',
+        title: 'UNITED STATES. TRYLON AND PERISPHERE. NEW YORK WORLD’S FAIR',
+        sentences: ['1939 ']
+    }, {
+        filename: 'image31.jpg',
+        title: 'NEW YORK CITY BUILDING; TRYLON AND PERISPHERE. NEW YORK WORLD’S FAIR',
+        sentences: ['1939 ']
+    }, {
+        filename: 'image32.jpg',
+        title: 'FOOD BUILDING NUMBER THREE. NEW YORK WORLD’S FAIR',
+        sentences: ['1939 ']
+    }, {
+        filename: 'image33.jpg',
+        title: 'THE FAIR ADMINISTRATION BUILDING. NEW YORK WORLD’S FAIR',
+        sentences: ['1939 ']
+    }, {
+        filename: 'image34.jpg',
+        title: 'SEATTLE WORLD’S FAIR: OFFICIAL SOUVENIR PROGRAM.',
+        sentences: ['1962 ']
+    }, {
+        filename: 'image35.jpg',
+        title: 'UNITED STATES. SEATTLE WORLD’S FAIR',
+        sentences: ['1962 ']
+    }, {
+        filename: 'image36.jpg',
+        title: 'SEATTLE WORLD’S FAIR INFORMATION BOOTH AND SPACE NEEDLE',
+        sentences: ['1962 ']
+    }, {
+        filename: 'image37.jpg',
+        title: 'PETER AND WENDY SEE THE NEW YORK WORLD’S FAIR',
+        sentences: ['1963 ']
+    }, {
+        filename: 'image38.jpg',
+        title: 'PETER AND WENDY SEE THE NEW YORK WORLD’S FAIR',
+        sentences: ['1963']
+    }, {
+        filename: 'image39.jpg',
+        title: 'UNITED STATES. NEW YORK WORLD’S FAIR',
+        sentences: ['1964-1965']
+    }, {
+        filename: 'image40.jpg',
+        title: 'UNISPHERE. NEW YORK WORLD’S FAIR',
+        sentences: ['1964-1965']
+    }, {
+        filename: 'image41.jpg',
+        title: 'SCHAEFER CENTER AT NIGHT. NEW YORK WORLD’S FAIR',
+        sentences: ['1964-1965']
+    }, {
+        filename: 'image42.jpg',
+        title: 'SWEDISH PAVILION. NEW YORK WORLD’S FAIR',
+        sentences: ['1964-1965']
+    }, {
+        filename: 'image43.jpg',
+        title: 'TIP OR TRINKET TRAY. NEW YORK WORLD’S FAIR 1964-65',
+        sentences: ['1964-1965']
+    }, {
+        filename: 'image44.jpg',
+        title: 'UNITED STATES. KNOXVILLE WORLD’S FAIR',
+        sentences: [' 1982']
+    }, {
+        filename: 'image45.jpg',
+        title: 'THE 1982 WORLD’S FAIR. MAY-OCTOBER 1982. KNOXVILLE, TENNESSEE',
+        sentences: ['1982']
+    }, {
+        filename: 'image46.jpg',
+        title: 'THE SUNSPHERE. THE 1982 WORLD’S FAIR',
+        sentences: ['1982']
+    }, {
+        filename: 'image47.jpg',
+        title: 'The 1982 World’s Fair. Knoxville, Tennessee USA',
+        sentences: ['1981']
+    }];
+    imageContainers.forEach((container, index) => {
+        const image = container.querySelector('img');
+        image.addEventListener('click', () => {
+            popup.style.display = 'flex';
+            popupImage.src = image.src;
+            const {
+                title,
+                sentences
+            } = imageInfo[index];
+            imageDetails.innerHTML = `
+  <h2>${title}</h2>`;
+            sentences.forEach(sentence => {
+                imageDetails.innerHTML += `
+  <p>${sentence}</p>`;
+            });
+        });
+    });
+    closePopup.addEventListener('click', () => {
+        popup.style.display = 'none';
+    });
+    document.addEventListener('keydown', event => {
+        if (event.key === 'Escape') {
+            popup.style.display = 'none';
+        }
+    });
+    </script>
+</body>
+</html>
